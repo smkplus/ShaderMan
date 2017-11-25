@@ -41,20 +41,6 @@ o.uv = v.uv;
 o.screenCoord.xy = ComputeScreenPos(o.vertex);
 return o;
 }
-/*by mu6k, Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
-
- I have no idea how I ended up here, but it demosceneish enough to publish.
- You can use the mouse to rotate the camera around the 'object'.
- If you can't see the shadows, increase occlusion_quality.
- If it doesn't compile anymore decrease object_count and render_steps.
-
- 15/06/2013:
- - published
- 
- 16/06/2013:
- - fmodified for better performance and compatibility
-
- muuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuusk!*/
 
 #define occlusion_enabled
 #define occlusion_quality 4

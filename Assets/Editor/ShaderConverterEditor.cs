@@ -7,16 +7,6 @@ using System;
 // Simple script that creates a new non-dockable window
 public class ShaderConverterEditor : EditorWindow
 {
-
-
-	// Have we loaded the prefs yet
-	private static bool prefsLoaded = false;
-
-	// The Preferences
-	private static bool boolPreference = false;
-
-
-
 	bool convert;
 	public string shaderName = "MyShader";
 	string text = "Give Me ShaderToy :D";
@@ -24,10 +14,10 @@ public class ShaderConverterEditor : EditorWindow
 	bool Replace;
     TextAsset txtAsset,newTxtAsset;
 
-	public enum GameEngine {ShaderToy, GameMaker, Construct};
-	public GameEngine gameEngine;
+	//public enum GameEngine {ShaderToy, GameMaker, Construct};
+	//public GameEngine gameEngine;
 	Vector2 scroll;
-	[MenuItem("Tools/ShaderMan")]
+	[MenuItem("Window/ShaderMan")]
 	static void Initialize()
 	{
 		ShaderConverterEditor window = (ShaderConverterEditor)EditorWindow.GetWindow (typeof(ShaderConverterEditor), true, "ShaderMan v.2.0");
@@ -37,51 +27,45 @@ public class ShaderConverterEditor : EditorWindow
 		window.wantsMouseMove = true;
 	}
 
-
-
-
-
 	void OnGUI () {
+		GUILayout.BeginArea (new Rect (10,10,700,500)); // you only need to do this once unless you want to show the same window twice
+		shaderName = EditorGUILayout.TextField(shaderName);
 
-			GUILayout.BeginArea (new Rect (10, 10, 700, 500)); // you only need to do this once unless you want to show the same window twice
-			shaderName = EditorGUILayout.TextField (shaderName);
 
-
-			scroll = EditorGUILayout.BeginScrollView (scroll);
+		scroll = EditorGUILayout.BeginScrollView(scroll);
 		
-			text = EditorGUILayout.TextArea (text, GUILayout.Height (position.height - 80));
-			EditorGUILayout.EndScrollView ();
+		text = EditorGUILayout.TextArea(text, GUILayout.Height(position.height - 80));
+		EditorGUILayout.EndScrollView();
 
 		
-			#region Buttons
 
-			//Convert from GLSL To HLSL
-			if (GUILayout.Button ("Convert")) {
-				Debug.Log ("Converted");
-				CreateShader ();
 
-			}
-			//About
-			GUI.skin.label.fontSize = 100;
-			if (GUILayout.Button ("About")) {
-				Debug.Log ("Created By Seyed Mortaza Kamaly");
-				EditorUtility.DisplayDialog ("About",
-					@"ShaderMan Developed by Seyed Mortaza Kamaly (Iranian Programmer) that let you convert shaders from GLSL To HLSL.Copyright © 2017 , All Rigth Reserved."
+		if(GUILayout.Button("Convert"))
+		{
+			Debug.Log("Build");
+			CreateShader ();
+
+		}
+		GUI.skin.label.fontSize = 100;
+		if(GUILayout.Button("About me"))
+		{
+			Debug.Log("Created By Seyed Mortaza Kamaly");
+			EditorUtility.DisplayDialog ("Converter",
+				@"Created By Seyed Mortaza Kamaly"
+
 
 				, "Ok");
 
-			}
-			#endregion
+		}
 
-			GUILayout.EndArea ();
+		GUILayout.EndArea ();
 
-			GUILayout.BeginArea (new Rect (800, 10, 800, 600)); // you only need to do this once unless you want to show the same window twice
-			//myString = EditorGUILayout.TextField ("Text Field", myString);        
-			EditorGUILayout.EnumPopup (gameEngine);
+		GUILayout.BeginArea (new Rect (800,10,800,600)); // you only need to do this once unless you want to show the same window twice
+		//myString = EditorGUILayout.TextField ("Text Field", myString);        
+		//EditorGUILayout.EnumPopup (gameEngine);
 
-			//EditorGUILayout.EndToggleGroup ();
-			GUILayout.EndArea ();
-		
+		//EditorGUILayout.EndToggleGroup ();
+		GUILayout.EndArea ();
 	}
 
 
@@ -103,15 +87,14 @@ public class ShaderConverterEditor : EditorWindow
 				
 				return;
 			}
-
-
 		}
 
-		if (CodeFix.instance != null || Replace) {
+		if (CodeGenerator.instance != null || Replace) {
 			var sr = File.CreateText (path + fileName);
 
-			CodeFix.instance.ShaderName = shaderName;
-			sr.WriteLine (CodeFix.instance.Convert (text));
+			sr.WriteLine ("");
+			CodeGenerator.instance.ShaderName = shaderName;
+			sr.WriteLine (CodeGenerator.instance.Convert (text));
 			sr.Close ();
 		}
 

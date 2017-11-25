@@ -132,45 +132,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 49189939}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d499a274956b99647a0f695d2b28442c, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d5da69312354284d9577c6b861796fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lines: []
-  ShaderInput: "// Created by inigo quilez - iq/2013\r\n// License Creative Commons
-    Attribution-NonCommercial-ShareAlike 3.0 Unported License.\r\n\r\n// Tutorial
-    here: \r\n//\r\n// * https://www.youtube.com/watch?v=-z8zLVFCJv4\r\n//\r\n// *
-    http://iquilezles.org/live/index.htm\r\n\r\n\r\nvoid mainImage( out vec4 fragColor,
-    in vec2 fragCoord )\r\n{\r\n  vec2 q = 0.6 * (2.0*fragCoord-iResolution.xy)/min(iResolution.y,iResolution.x);\r\n\r\n
-    \   float a = atan( q.x, q.y );\r\n    float r = length( q );\r\n    float s =
-    0.50001 + 0.5*sin( 3.0*a + iTime );\r\n    float g = sin( 1.57+3.0*a+iTime );\r\n
-    \   float d = 0.15 + 0.3*sqrt(s) + 0.15*g*g;\r\n    float h = clamp( r/d, 0.0,
-    1.0 );\r\n    float f = 1.0-smoothstep( 0.95, 1.0, h );\r\n    \r\n    h *= 1.0-0.5*(1.0-h)*smoothstep(
-    0.95+0.05*h, 1.0, sin(3.0*a+iTime) );\r\n  \r\n  vec3 bcol = vec3(0.9+0.1*q.y,
-    1.0, 0.9-0.1*q.y);\r\n  bcol *= 1.0 - 0.5*r;\r\n    vec3 col = mix( bcol, 1.2*vec3(0.65*h,
-    0.25+0.5*h, 0.0), f );\r\n\r\n    fragColor = vec4( col, 1.0 );\r\n}"
-  Result: "Shader\"ShaderMan/Leaf\"{\nProperties{\n\n}\nSubShader{\nPass{\nCGPROGRAM\n#pragma
-    vertex vert\n#pragma fragment frag\n#pragma fragmentoption ARB_precision_hint_fastest\n#include
-    \"UnityCG.cginc\"\nstruct appdata{\nfloat4 vertex : POSITION;\nfloat2 uv : TEXCOORD0;\n};\nuniform
-    fixed4     fragColor;\nuniform fixed      iChannelTime[4];// channel playback
-    time (in seconds)\nuniform fixed3     iChannelResolution[4];// channel resolution
-    (in pixels)\nuniform fixed4     iMouse;// mouse pixel coords. xy: current (if
-    MLB down), zw: click\nuniform fixed4     iDate;// (year, month, day, time in seconds)\nuniform
-    fixed      iSampleRate;// sound sample rate (i.e., 44100)\n\nstruct v2f\n{\nfloat2
-    uv : TEXCOORD0;\nfloat4 vertex : SV_POSITION;\nfloat4 screenCoord : TEXCOORD1;\n};\n\nv2f
-    vert(appdata v)\n{\nv2f o;\no.vertex = mul(UNITY_MATRIX_MVP, v.vertex);\no.uv
-    = v.uv;\no.screenCoord.xy = ComputeScreenPos(o.vertex);\nreturn o;\n}\n// Created
-    by inigo quilez - iq/2013\r\n// License Creative Commons Attribution-NonCommercial-ShareAlike
-    3.0 Unported License.\r\n\r\n// Tutorial here: \r\n//\r\n// * https://www.youtube.com/watch?v=-z8zLVFCJv4\r\n//\r\n//
-    * http://iquilezles.org/live/index.htm\r\n\r\n\r\nfixed4 frag(v2f i) : SV_Target{\n\n{\r\n
-    \ fixed2 q = 0.6 * (2.0*i.uv-1)/min(1,1);\r\n\r\n    fixed a = atan2( q.y , q.x);\r\n
-    \   fixed r = length( q );\r\n    fixed s = 0.50001 + 0.5*sin( 3.0*a + _Time.y
-    );\r\n    fixed g = sin( 1.57+3.0*a+_Time.y );\r\n    fixed d = 0.15 + 0.3*sqrt(s)
-    + 0.15*g*g;\r\n    fixed h = clamp( r/d, 0.0, 1.0 );\r\n    fixed f = 1.0-smoothstep(
-    0.95, 1.0, h );\r\n    \r\n    h *= 1.0-0.5*(1.0-h)*smoothstep( 0.95+0.05*h, 1.0,
-    sin(3.0*a+_Time.y) );\r\n  \r\n  fixed3 bcol = fixed3(0.9+0.1*q.y, 1.0, 0.9-0.1*q.y);\r\n
-    \ bcol *= 1.0 - 0.5*r;\r\n    fixed3 col = lerp( bcol, 1.2*fixed3(0.65*h, 0.25+0.5*h,
-    0.0), f );\r\n\r\n    return  fixed4( col, 1.0 );\r\n}\n}ENDCG\n}\n}\n}\n"
-  ShaderName: Leaf
+  ShaderName: MyShader
 --- !u!4 &49189941
 Transform:
   m_ObjectHideFlags: 0
@@ -604,6 +569,90 @@ Transform:
   m_Father: {fileID: 1102976515}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &296146409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 296146410}
+  - component: {fileID: 296146413}
+  - component: {fileID: 296146412}
+  - component: {fileID: 296146411}
+  m_Layer: 0
+  m_Name: Industry (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &296146410
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 296146409}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 43.7, y: 14.926529, z: -6.6643524}
+  m_LocalScale: {x: 2.0253663, y: 1.6319958, z: 1.6319958}
+  m_Children: []
+  m_Father: {fileID: 1102976515}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &296146411
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 296146409}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 375de1583cad9884fb9637810ccffce3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!64 &296146412
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 296146409}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &296146413
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 296146409}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &324407169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1648,6 +1697,7 @@ Transform:
   - {fileID: 1609976449}
   - {fileID: 1471761934}
   - {fileID: 1351698886}
+  - {fileID: 296146410}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2275,7 +2325,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5348ed3889be71e48954c4662cc3625b, type: 2}
+  - {fileID: 2100000, guid: db38f3285d73bba4e9c0728fc621b909, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
