@@ -18,8 +18,8 @@ Tools\ShaderMan
 ![StepA](https://user-images.githubusercontent.com/16706911/33229605-db538f5e-d1e6-11e7-8563-a48a7df3ae60.png)
 
 # 3.Import your shader from shaderToy.com
-![StepB](https://user-images.githubusercontent.com/16706911/33229605-db538f5e-d1e6-11e7-8563-a48a7df3ae60.png)
+![Step B](https://user-images.githubusercontent.com/16706911/33229653-1350acc4-d1e8-11e7-85d1-3f4613eed690.png)
 
 
 # 4.Click On Convert And Enjoy :D
-![Final Step](https://user-images.githubusercontent.com/16706911/33229653-1350acc4-d1e8-11e7-85d1-3f4613eed690.png)
+![Final Step](https://user-images.githubusercontent.com/16706911/33229663-366dc5ac-d1e8-11e7-81ec-4539a025f111.png)
