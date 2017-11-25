@@ -123,12 +123,11 @@ public class CodeGenerator : MonoBehaviour {
 		BaseReplace( "iChannel2", "_ThirdTex");
 		BaseReplace( "iChannel3", "_FourthTex");
 		//BaseReplace( "fragCoord", "i.vertex");
+		BaseReplace (@"iResolution.((x|y){1,2})?", "1");
 		BaseReplace( @"fragCoord.xy / iResolution.xy", "i.uv");
-		BaseReplace( @"iResolution(.xy)?", "_ScreenParams");
 		BaseReplace( @"fragCoord(.xy)?", "i.uv");
 		BaseReplace( @"iResolution(\.(x|y){1,2})?", "1");
 
-		//BaseReplace( "iResolution", "_ScreenParams");
 		BaseReplace( "iMouse", "_iMouse");
 		BaseReplace( "mat2", "fixed2x2");
 		BaseReplace( "mat3", "fixed3x3");
