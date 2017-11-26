@@ -16,7 +16,7 @@ The shaders exhibited on ShaderToy are exclusively written in GLSL, and run in y
 ![ShaderToy](https://user-images.githubusercontent.com/16706911/33229710-44a67f1e-d1e9-11e7-9ed2-f338625b6c5d.jpg)
 
 # 2.Open ShaderMan from Tools\ShaderMan
-before opening shaderman be sure that there is codegenerator.cs in scene
+before opening shaderman be sure that there is codegenerator.cs in scene otherwise ShaderMan throws NullReferenceException.
 # 3.Choose Name for you shader:
 ![Step](https://user-images.githubusercontent.com/16706911/33229605-db538f5e-d1e6-11e7-8563-a48a7df3ae60.png)
 
