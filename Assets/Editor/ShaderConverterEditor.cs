@@ -20,6 +20,11 @@ public class ShaderConverterEditor : EditorWindow
 	[MenuItem("Window/ShaderMan")]
 	static void Initialize()
 	{
+		if (GameObject.Find ("CodeGenerator") == null) {
+			GameObject obj = new GameObject ();
+			obj.name = "CodeGenerator";
+			obj.AddComponent<CodeGenerator> ();
+		}
 		ShaderConverterEditor window = (ShaderConverterEditor)EditorWindow.GetWindow (typeof(ShaderConverterEditor), true, "ShaderMan v.2.0");
 		window.maxSize = new Vector2 (718, 520);
 		window.minSize = new Vector2 (718, 520);

@@ -118,6 +118,7 @@ public class CodeGenerator : MonoBehaviour {
 		BaseReplace( @"ifixed(\d)", "fixed$1");//ifixed to fixed
 		BaseReplace( "texture", "tex2D");
 		BaseReplace( "tex2DLod", "tex2Dlod");
+		BaseReplace( "refrac", "refract");
 		BaseReplace( "iChannel0", "_MainTex");
 		BaseReplace( "iChannel1", "_SecondTex");
 		BaseReplace( "iChannel2", "_ThirdTex");
