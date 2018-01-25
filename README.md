@@ -8,6 +8,24 @@ It’s an amazing resource, not only for inspiration but for learning how to cre
 
 The shaders exhibited on ShaderToy are exclusively written in GLSL, and run in your browser using WebGL.I write an automatic conversion tool to turn a GLSL shader into an HLSL shader that help you fast convert ShaderToy to ShaderLab unity.
 
+Microsoft have published a very useful reference guide here which details many of the general differences between GLSL and HLSL. Unity also have a useful page here. The following is a list of specific issues I’ve encountered when converting Shadertoy shaders to Unity:
+```
+    Replace iGlobalTime shader input (“shader playback time in seconds”) with _Time.y
+    Replace iResolution.xy (“viewport resolution in pixels”) with _ScreenParams.xy
+    Replace vec2 types with float2, mat2 with float2x2 etc.
+    Replace vec3(1) shortcut constructors in which all elements have same value with explicit float3(1,1,1)
+    Replace Texture2D with Tex2D
+    Replace atan(x,y) with atan2(y,x) <- Note parameter ordering!
+    Replace mix() with lerp()
+    Replace *= with mul()
+    Remove third (bias) parameter from Texture2D lookups
+    mainImage(out vec4 fragColor, in vec2 fragCoord) is the fragment shader function, equivalent to float4 mainImage(float2 fragCoord : SV_POSITION) : SV_Target
+    UV coordinates in GLSL have 0 at the top and increase downwards, in HLSL 0 is at the bottom and increases upwards, so you may need to use uv.y = 1 – uv.y at some point.
+```
+Note that ShaderToys don’t have a vertex shader function – they are effectively full-screen pixel shaders which calculate the value at each UV coordinate in screenspace. As such, they are most suitable for use in a full-screen image effect (or, you can just apply them to a plane/quad if you want) in which the UVs range from 0-1.
+
+But calculating pixel shaders for each pixel in a 1024×768 resolution (or higher) is *expensive*. One solution if you want to achieve anything like a game-playable framerate is to render the effect to a fixed-size rendertexture, and then scale that up to fill the screen. Here’s a simple generic script to do that:
+
 # https://www.youtube.com/watch?v=ZncPTfT8wLg
 
 
