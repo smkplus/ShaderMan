@@ -8,7 +8,7 @@ It’s an amazing resource, not only for inspiration but for learning how to cre
 
 The shaders exhibited on ShaderToy are exclusively written in GLSL, and run in your browser using WebGL.I write an automatic conversion tool to turn a GLSL shader into an HLSL shader that help you fast convert ShaderToy to ShaderLab unity.
 
-Microsoft have published a very useful reference guide here which details many of the general differences between GLSL and HLSL. Unity also have a useful page here. The following is a list of specific issues I’ve encountered when converting Shadertoy shaders to Unity:
+Microsoft have published a very useful reference guide [here](https://docs.microsoft.com/en-us/previous-versions/windows/apps/dn166865(v=win.10)) which details many of the general differences between GLSL and HLSL. Unity also have a useful page [here](https://docs.unity3d.com/Manual/SL-PlatformDifferences.html). The following is a list of specific issues I’ve encountered when converting Shadertoy shaders to Unity:
 ```
     Replace iGlobalTime shader input (“shader playback time in seconds”) with _Time.y
     Replace iResolution.xy (“viewport resolution in pixels”) with _ScreenParams.xy
