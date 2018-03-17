@@ -121,6 +121,7 @@ public class CodeGenerator : MonoBehaviour {
 		BaseReplace( "texture", "tex2D");
 		BaseReplace( "tex2DLod", "tex2Dlod");
         BaseReplace( "tex2DGrad", "tex2Dgrad");
+        BaseReplace( "textureGrad", "tex2Dgrad");
         BaseReplace( "refrac", "refract");
 		BaseReplace( "iChannel0", "_MainTex");
 		BaseReplace( "iChannel1", "_SecondTex");
