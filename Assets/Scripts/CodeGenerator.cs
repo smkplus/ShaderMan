@@ -115,7 +115,9 @@ public class CodeGenerator : MonoBehaviour {
 		BaseReplace( "iGlobalTime", "_Time.y");
 		BaseReplace( "fragColor =", "return");
 		BaseReplace( "fract", "frac");
-		BaseReplace( @"ifixed(\d)", "fixed$1");//ifixed to fixed
+        BaseReplace("dFdx", "ddx");
+        BaseReplace("dFdy", "ddy");
+        BaseReplace( @"ifixed(\d)", "fixed$1");//ifixed to fixed
 		BaseReplace( "texture", "tex2D");
 		BaseReplace( "tex2DLod", "tex2Dlod");
 		BaseReplace( "refrac", "refract");
