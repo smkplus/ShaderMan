@@ -44,3 +44,16 @@ before opening shaderman be sure that there is codegenerator.cs in scene otherwi
 
 # 5.Click On Convert And Enjoy :D
 ![Final Step](https://user-images.githubusercontent.com/16706911/33229663-366dc5ac-d1e8-11e7-81ec-4539a025f111.png)
+
+
+________________________
+
+# Musual
+Music Visualization Shader
+
+![Musual](https://user-images.githubusercontent.com/16706911/40903967-693154a8-67ee-11e8-8c09-6d59b9a463b8.PNG)
+
+#https://github.com/smkplus/Musual
+
+# https://youtu.be/ppSjyvxR8uI
+
