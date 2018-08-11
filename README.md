@@ -52,6 +52,14 @@ before opening shaderman be sure that there is codegenerator.cs in scene otherwi
 
 
 ________________________
+# Video Tutorial Is Available
+
+
+![capturedwadad](https://user-images.githubusercontent.com/16706911/43994219-9bafa39e-9dae-11e8-9560-c759c01dbb6d.PNG)
+
+https://www.youtube.com/watch?v=MCER5P8Xz3w&lc=z22ysdkqln2texqj004t1aokgkzlpvkn3rdybfw1wtugrk0h00410
+
+________________________
 
 # Musual
 Music Visualization Shader
@@ -64,10 +72,5 @@ Music Visualization Shader
 
 
 
-# Video Tutorial Is Available
 
-
-![capturedwadad](https://user-images.githubusercontent.com/16706911/43994219-9bafa39e-9dae-11e8-9560-c759c01dbb6d.PNG)
-
-https://www.youtube.com/watch?v=MCER5P8Xz3w&lc=z22ysdkqln2texqj004t1aokgkzlpvkn3rdybfw1wtugrk0h00410
 
