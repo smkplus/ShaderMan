@@ -26,7 +26,15 @@ Note that ShaderToys don’t have a vertex shader function – they are effectiv
 
 But calculating pixel shaders for each pixel in a 1024×768 resolution (or higher) is *expensive*. One solution if you want to achieve anything like a game-playable framerate is to render the effect to a fixed-size rendertexture, and then scale that up to fill the screen. Here’s a simple generic script to do that:
 
+# Demo
 # https://www.youtube.com/watch?v=ZncPTfT8wLg
+
+
+# Tutorial
+
+![Tutorial](https://user-images.githubusercontent.com/16706911/43994197-2eddebb8-9dae-11e8-825f-02b9a5e3b246.PNG)
+
+__________________________
 
 
 # How to use:
@@ -56,4 +64,7 @@ Music Visualization Shader
 # https://github.com/smkplus/Musual
 
 # https://youtu.be/ppSjyvxR8uI
+
+
+
 
