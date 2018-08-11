@@ -30,9 +30,6 @@ But calculating pixel shaders for each pixel in a 1024×768 resolution (or highe
 # https://www.youtube.com/watch?v=ZncPTfT8wLg
 
 
-# Tutorial
-
-![Tutorial](https://user-images.githubusercontent.com/16706911/43994197-2eddebb8-9dae-11e8-825f-02b9a5e3b246.PNG)
 
 __________________________
 
@@ -67,4 +64,10 @@ Music Visualization Shader
 
 
 
+# Video Tutorial Is Available
+
+
+![capturedwadad](https://user-images.githubusercontent.com/16706911/43994219-9bafa39e-9dae-11e8-9560-c759c01dbb6d.PNG)
+
+https://www.youtube.com/watch?v=MCER5P8Xz3w&lc=z22ysdkqln2texqj004t1aokgkzlpvkn3rdybfw1wtugrk0h00410
 
